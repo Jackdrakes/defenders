@@ -4,15 +4,16 @@ import { NcuCoinDistributor } from "../../common/constants";
 export const claimDeanListAllowance = async (
     caller
   ) => {
-    console.log("insdie")
+
     try {
-      console.log("inside Claim D L");
+
       const WALLET_RESP = await CheckIfWalletConnected(wallet);
       if (!WALLET_RESP.success) {
         throw new Error('Wallet connection failed');
       }
       const contractInstance = await tezos.contract.at(NcuCoinDistributor);
-      const op = await contractInstance.methods.claimDeanListAllowance().send();
+      let batch = tezos.wallet.batch().withContractCall(contractInstance.methods.claimDeanListAllowance())
+      const op = await batch.send();
       const hash = await op.confirmation(1);
 
       return {
@@ -32,14 +33,15 @@ export const claimSemestralAllowance = async (
     caller
   ) => {
     try {
-     
+    
       const WALLET_RESP = await CheckIfWalletConnected(wallet);
       if (!WALLET_RESP.success) {
         throw new Error('Wallet connection failed');
       }
-
+ 
       const contractInstance = await tezos.contract.at(NcuCoinDistributor);
-      const op = await contractInstance.methods.claimSemestralAllowance().send();
+      let batch = tezos.wallet.batch().withContractCall(contractInstance.methods.claimSemestralAllowance())
+      const op = await batch.send();
       const hash = await op.confirmation(1);
 
       return {
@@ -69,7 +71,8 @@ export const addStudent = async (
       }
 
       const contractInstance = await tezos.contract.at(NcuCoinDistributor);
-      const op = await contractInstance.methods.addStudent(studentAddress).send();
+      let batch = tezos.wallet.batch().withContractCall(contractInstance.methods.addStudent(studentAddress))
+      const op = await batch.send();
       const hash = await op.confirmation(1);
 
       return {
@@ -97,7 +100,8 @@ export const removeStudent = async (
       }
 
       const contractInstance = await tezos.contract.at(NcuCoinDistributor);
-      const op = await contractInstance.methods.removeStudent(studentAddress).send();
+      let batch = tezos.wallet.batch().withContractCall(contractInstance.methods.removeStudent(studentAddress))
+      const op = await batch.send();
       const hash = await op.confirmation(1);
 
       return {
@@ -125,7 +129,8 @@ export const addDeansStudent = async (
       }
 
       const contractInstance = await tezos.contract.at(NcuCoinDistributor);
-      const op = await contractInstance.methods.addDeansStudent(studentAddress).send();
+      let batch = tezos.wallet.batch().withContractCall(contractInstance.methods.addDeansStudent(studentAddress))
+      const op = await batch.send();
       const hash = await op.confirmation(1);
 
       return {
@@ -152,7 +157,9 @@ export const togglePause = async (
       }
 
       const contractInstance = await tezos.contract.at(NcuCoinDistributor);
-      const op = await contractInstance.methods.togglePause().send();
+
+      let batch = tezos.wallet.batch().withContractCall(contractInstance.methods.togglePause())
+      const op = await batch.send();
       const hash = await op.confirmation(1);
 
       return {
@@ -180,7 +187,8 @@ export const updateAdmin = async (
       }
 
       const contractInstance = await tezos.contract.at(NcuCoinDistributor);
-      const op = await contractInstance.methods.updateAdmin(newAdmin).send();
+      let batch = tezos.wallet.batch().withContractCall(contractInstance.methods.updateAdmin(newAdmin))
+      const op = await batch.send();
       const hash = await op.confirmation(1);
 
       return {
@@ -208,7 +216,10 @@ export const updateAmount = async (
       }
 
       const contractInstance = await tezos.contract.at(NcuCoinDistributor);
-      const op = await contractInstance.methods.updateAmount(newAmount).send();
+
+      let batch = tezos.wallet.batch().withContractCall(contractInstance.methods.updateAmount(newAmount))
+      const op = await batch.send();
+
       const hash = await op.confirmation(1);
 
       return {
@@ -236,7 +247,8 @@ export const updateTime = async (
       }
 
       const contractInstance = await tezos.contract.at(NcuCoinDistributor);
-      const op = await contractInstance.methods.updateTime(newTime).send();
+      let batch = tezos.wallet.batch().withContractCall(contractInstance.methods.updateTime(newTime))
+      const op = await batch.send();
       const hash = await op.confirmation(1);
 
       return {
@@ -264,7 +276,9 @@ export const updateToken = async (
       }
 
       const contractInstance = await tezos.contract.at(NcuCoinDistributor);
-      const op = await contractInstance.methods.updateToken(newToken).send();
+
+      let batch = tezos.wallet.batch().withContractCall(contractInstance.methods.updateToken(newToken))
+      const op = await batch.send();
       const hash = await op.confirmation(1);
 
       return {
