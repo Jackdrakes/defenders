@@ -111,6 +111,7 @@ export const mintFood = async (
     cost,
   ) => {
     try {
+      cost = cost*1000000;
       const WALLET_RESP = await CheckIfWalletConnected(wallet);
       if (!WALLET_RESP.success) {
         throw new Error('Wallet connection failed');
@@ -126,7 +127,7 @@ export const mintFood = async (
           .withContractCall(coinInstance.methods.approve(Canteen, cost))
           .withContractCall(
             canteenInstance.methods.payFine(
-              foodId
+              cost
             ),
           );
   
