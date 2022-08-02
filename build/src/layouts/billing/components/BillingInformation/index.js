@@ -28,6 +28,7 @@ import { payFine } from './../../../../api/operations/canteen';
 function BillingInformation() {
 
   const [cost, setCost] = useState(null);
+  const [Fine, setFine] = useState(null);
 
   return (
     <>
@@ -59,9 +60,9 @@ function BillingInformation() {
         <MDBox component="ul" display="flex" flexDirection="column" p={0} m={0}>
           <MDTypography variant="h3" my={0} >Pay Fine due</MDTypography>
           <MDTypography variant="body2" my={1}>1 NCU Token ~ 1Rs cash equivalent</MDTypography>
-          <MDInput variant="outlined" label="Input token amount to send" />
+          <MDInput variant="outlined" value={fine} label="Input token amount to send" onChange={evt => setFine(parseInt(evt.target.value))}/>
           <MDBox my={1} >
-          <MDButton variant="gradient" color="info" fullWidth>Send</MDButton>
+          <MDButton variant="gradient" color="info" onClick={()=> payFine("wallet",fine)} fullWidth>Send</MDButton>
           </MDBox>
         </MDBox>
       </MDBox>
