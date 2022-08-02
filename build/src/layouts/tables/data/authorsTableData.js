@@ -25,6 +25,11 @@ import MDBadge from "components/MDBadge";
 import team2 from "assets/images/team-2.jpg";
 import team3 from "assets/images/team-3.jpg";
 import team4 from "assets/images/team-4.jpg";
+
+import BUrgerimg from "../../../assets/NFTs/Burger.jpeg"
+import Dosaimg from "../../../assets/NFTs/Idli.jpeg"
+import Samosaimg from "../../../assets/NFTs/Samosa.jpeg"
+import Pizzaimg from "../../../assets/NFTs/Pizza.jpeg"
 import MDButton from "components/MDButton";
 import { mintFood } from './../../../api/operations/canteen';
 
@@ -61,7 +66,7 @@ export default function data() {
 
     rows: [
       {
-        author: <Author image={team3} name="Burger" email="" />,
+        author: <Author image={BUrgerimg} name="Burger" email="" />,
         function: <Job title="50 NCU Tokens" description="" />,
         status: (
           <MDBox ml={-1}>
@@ -84,7 +89,7 @@ export default function data() {
         ),
       },
       {
-        author: <Author image={team4} name="Dosa Sambhar" email="" />,
+        author: <Author image={Dosaimg} name="Dosa Sambhar" email="" />,
         function: <Job title="70 NCU Tokens" description="" />,
         status: (
           <MDBox ml={-1}>
@@ -107,7 +112,7 @@ export default function data() {
         ),
       },
       {
-        author: <Author image={team3} name="Pizza" email="" />,
+        author: <Author image={Pizzaimg} name="Pizza" email="" />,
         function: <Job title="100 NCU Tokens" description="" />,
         status: (
           <MDBox ml={-1}>
@@ -130,7 +135,7 @@ export default function data() {
         ),
       },
       {
-        author: <Author image={team3} name="Samosa" email="" />,
+        author: <Author image={Samosaimg} name="Samosa" email="" />,
         function: <Job title="40 NCU Tokens" description="" />,
         status: (
           <MDBox ml={-1}>

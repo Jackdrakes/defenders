@@ -16,6 +16,7 @@ Coded by www.creative-tim.com
 // @mui material components
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
+import image from "./"
 
 // @mui icons
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -64,17 +65,15 @@ import { claimSemestralAllowance } from "api/operations/minter";
 function Overview({}) {
   const{ wallet ,balance} = useContext(manageFunc);
   useEffect(() => {
-     console.log("here",wallet)
       getBal()
   },[wallet])
 
-    const [result, setResult] = useState(null);
+    const [result, setResult] = useState([]);
 
     async function getBal() {
-      console.log("inside getbal" ,wallet)
       const res = await getAchievements(wallet);
-      setResult(res)
-      console.log(res.value[0])
+      
+      setResult(Object.entries(res.value).map((e)=>({[e[0]]:e[1]})))      
     }
 
   return (
@@ -88,7 +87,7 @@ function Overview({}) {
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
             <DefaultInfoCard
-              icon="account_balance"
+                icon="account_balance"
               title="Semester Allowance"
               description="Available"
               value="+200 NCUT"
@@ -150,21 +149,28 @@ function Overview({}) {
         </MDBox>
         <MDBox p={2}>
           <Grid container spacing={6}>
+        { result.length>0 && result.map((data, i)=>(
             <Grid item xs={12} md={6} xl={3}>
               <DefaultProjectCard
-                image={homeDecor4}
-                label="project #4"
-                title="gothic"
-                description="Why would anyone pick blue over pink? Pink is obviously a better color."
+              
+                image={`../../../../assets/NFTs/${data[i].symbol}.jpg`}
+                label={data[i].name}
+                title={data[i].symbol}
+                attributes = {data[i].attributes}
+                description={`Why would anyone pick blue over pink Pink is obviously a better color`}
+
                 action={{
                   type: "internal",
                   route: "/pages/profile/profile-overview",
                   color: "info",
                   label: "view on blockchain",
                 }}
-              />
-            </Grid>
+            />
           </Grid>
+        ))}
+        </Grid>
+       
+
         </MDBox>
       </Header>
       <Footer />

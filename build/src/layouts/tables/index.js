@@ -139,8 +139,8 @@ function Tables() {
                       <DefaultProjectCard
                         image={homeDecor1}
                         label={result[1]}
-                        title="Idli"
-                        description="Burn this to get a Burger invoice. (Valid for an hour)"
+                        title="Dosa Sambhar"
+                        description="Burn this to get a Dosa Sambhar invoice. (Valid for an hour)"
                         action={{
                           type: "internal",
                           route: "/pages/profile/profile-overview",
@@ -161,7 +161,7 @@ function Tables() {
                         image={homeDecor1}
                         label={result[2]}
                         title="Pizza"
-                        description="Burn this to get a Burger invoice. (Valid for an hour)"
+                        description="Burn this to get a Pizza invoice. (Valid for an hour)"
                         action={{
                           type: "internal",
                           route: "/pages/profile/profile-overview",
@@ -182,7 +182,7 @@ function Tables() {
                         image={homeDecor1}
                         label={result[3]}
                         title="Samosa"
-                        description="Burn this to get a Burger invoice. (Valid for an hour)"
+                        description="Burn this to get a Samosa invoice. (Valid for an hour)"
                         action={{
                           type: "internal",
                           route: "/pages/profile/profile-overview",

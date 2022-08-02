@@ -32,26 +32,14 @@ import MDAvatar from "components/MDAvatar";
 import CERTimg from "../../../../assets/NFTs/CERT.jpg"
 import DEGimg from "../../../../assets/NFTs/DEG.jpg"
 import TROPHimg from "../../../../assets/NFTs/TROPH.jpg"
-import BUrgerimg from "../../../../assets/NFTs/Burger.jpeg"
-import Dosaimg from "../../../../assets/NFTs/Idli.jpeg"
-import Samosaimg from "../../../../assets/NFTs/Samosa.jpeg"
-import Pizzaimg from "../../../../assets/NFTs/Pizza.jpeg"
 function DefaultProjectCard({ image, label, title, description, action, authors , attributes }) {
   console.log(image)
   if(title ==="DEG"){
     image = DEGimg
   } else if (title ==="CERT"){
     image = CERTimg
-  } else if (title ==="TROPH"){
-    image = TROPHimg
-  } else if (title ==="Burger"){
-    image = BUrgerimg
-  } else if (title ==="Dosa Sambhar"){
-    image = Dosaimg
-  } else if (title ==="Samosa"){
-    image = Samosaimg
   } else  {
-    image = Pizzaimg
+    image = TROPHimg
   }
   const renderAuthors = authors.map(({ image: media, name }) => (
     <Tooltip key={name} title={name} placement="bottom">

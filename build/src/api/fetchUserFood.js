@@ -45,21 +45,20 @@ export const getAchievements = async (address) =>  {
 
         // https://api.ghostnet.tzkt.io/v1/tokens/balances?token.contract=KT1KU4krNtEbiapDXvjMzL4YJ1WXiMF8MHFy&account=tz1NaGu7EisUCyfJpB16ktNxgSqpuMo8aSEk
 
-        address = 'tz1NaGu7EisUCyfJpB16ktNxgSqpuMo8aSEk';
 
         const response = await axios.get(`https://api.ghostnet.tzkt.io/v1/tokens/balances?token.contract=KT1KU4krNtEbiapDXvjMzL4YJ1WXiMF8MHFy&account=${address}`);
         const data = response.data;
 
-        console.log(data);
 
         let value = {};
 
         for(var i = 0 ; i< data.length ; i++){
+            if (data[i].balance!=0){
             let obj = data[i].token.metadata;
             value[i]= {name : obj.name , symbol : obj.symbol , attributes : obj.attributes};
+               }
         }
 
-        console.log(value);
         return{
             sucess : true,
             value : value
