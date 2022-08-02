@@ -28,7 +28,7 @@ import { payFine } from './../../../../api/operations/canteen';
 function BillingInformation() {
 
   const [cost, setCost] = useState(null);
-  const [Fine, setFine] = useState(null);
+  const [fine, setFine] = useState(null);
 
   return (
     <>
