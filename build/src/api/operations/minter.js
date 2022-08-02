@@ -4,13 +4,13 @@ import { NcuCoinDistributor } from "../../common/constants";
 export const claimDeanListAllowance = async (
     caller
   ) => {
+    console.log("insdie")
     try {
-     
+      console.log("inside Claim D L");
       const WALLET_RESP = await CheckIfWalletConnected(wallet);
       if (!WALLET_RESP.success) {
         throw new Error('Wallet connection failed');
       }
-
       const contractInstance = await tezos.contract.at(NcuCoinDistributor);
       const op = await contractInstance.methods.claimDeanListAllowance().send();
       const hash = await op.confirmation(1);

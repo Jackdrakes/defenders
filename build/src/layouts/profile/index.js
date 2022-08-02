@@ -58,18 +58,23 @@ import { manageFunc } from 'App';
 import { getAchievements } from "api/fetchUserFood";
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { claimSemestralAllowance } from "api/operations/minter";
+
 
 function Overview({}) {
   const{ wallet ,balance} = useContext(manageFunc);
   useEffect(() => {
+     console.log("here",wallet)
       getBal()
   },[wallet])
 
     const [result, setResult] = useState(null);
 
     async function getBal() {
+      console.log("inside getbal" ,wallet)
       const res = await getAchievements(wallet);
       setResult(res)
+      console.log(res.value[0])
     }
 
   return (
@@ -89,7 +94,7 @@ function Overview({}) {
               value="+200 NCUT"
             />
             <MDBox  my={1}>
-            <MDButton variant="gradient" color="info" fullWidth>Claim</MDButton>
+            <MDButton variant="gradient" color="info" onClick={() => {claimSemestralAllowance(wallet)}} fullWidth>Claim</MDButton>
             </MDBox>
             </MDBox>
           </Grid>
