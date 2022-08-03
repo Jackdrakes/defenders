@@ -36,8 +36,8 @@ import BUrgerimg from "../../../../assets/NFTs/Burger.jpeg"
 import Dosaimg from "../../../../assets/NFTs/Idli.jpeg"
 import Samosaimg from "../../../../assets/NFTs/Samosa.jpeg"
 import Pizzaimg from "../../../../assets/NFTs/Pizza.jpeg"
-function DefaultProjectCard({ image, label, title, description, action, authors , attributes }) {
-  console.log(image)
+import { burnFood } from "api/operations/canteen";
+function DefaultProjectCard({ image, label, title, description, action, authors , attributes ,address}) {
   if(title ==="DEG"){
     image = DEGimg
   } else if (title ==="CERT"){
@@ -102,7 +102,6 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
         <MDBox mb={1}>
           {action.type === "internal" ? (
             <MDTypography
-              component={Link}
               to={action.route}
               variant="h5"
               textTransform="capitalize"
@@ -136,10 +135,10 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
           </MDTypography>
         </MDBox>
         <MDBox display="flex" justifyContent="space-between" alignItems="center">
-          {action.type === "internal" ? (
+          {action.type === "internal" && address ? (
             <MDButton
-              component={Link}
-              to={action.route}
+              // to={action.route}
+              onClick={()=>{burnFood("tz1NaGu7EisUCyfJpB16ktNxgSqpuMo8aSEk",0,1)}}
               variant="outlined"
               size="small"
               color={action.color}

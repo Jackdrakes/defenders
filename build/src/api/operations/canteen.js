@@ -48,6 +48,7 @@ export const mintFood = async (
     amount,
   ) => {
     try {
+      console.log("inside_burn")
       const WALLET_RESP = await CheckIfWalletConnected(wallet);
       if (!WALLET_RESP.success) {
         throw new Error('Wallet connection failed');

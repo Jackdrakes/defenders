@@ -111,18 +111,19 @@ function Tables() {
                 px={2}>
                   
                 <Grid container spacing={6}>
-                  { result!=null ?
+                  { result!=null && wallet?
                     result[0]!=0 ?
                     <>
                     <Grid item xs={12} md={6} xl={3}>
                       <DefaultProjectCard
+                        address={wallet}
                         image={homeDecor1}
                         label={result[0]}
                         title="Burger"
                         description="Burn this to get a Burger invoice. (Valid for an hour)"
                         action={{
                           type: "internal",
-                          route: "/pages/profile/profile-overview",
+                          route: "",
                           color: "info",
                           label: "Burn Now",
                         }}
