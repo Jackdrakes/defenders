@@ -55,7 +55,7 @@ export const getAchievements = async (address) =>  {
         for(var i = 0 ; i< data.length ; i++){
             if (data[i].balance!=0){
             let obj = data[i].token.metadata;
-            value[i]= {name : obj.name , symbol : obj.symbol , attributes : obj.attributes};
+            value.push({name : obj.name , symbol : obj.symbol , attributes : obj.attributes});
                }
         }
 
