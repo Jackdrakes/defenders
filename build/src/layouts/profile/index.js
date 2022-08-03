@@ -72,10 +72,9 @@ function Overview({}) {
 
     async function getBal() {
       const res = await getAchievements(wallet);
-      
-      setResult(Object.entries(res.value).map((e)=>({[e[0]]:e[1]})))      
+      setResult(Object.entries(res?.value).map((e)=>({[e[0]]:e[1]})))      
     }
-
+    console.log(result)
   return (
     <DashboardLayout>
       <MDBox mb={2} />
@@ -152,20 +151,20 @@ function Overview({}) {
         { result.length>0 && result.map((data, i)=>(
             <Grid item xs={12} md={6} xl={3}>
               <DefaultProjectCard
-              
-                image={`../../../../assets/NFTs/${data[i].symbol}.jpg`}
-                label={data[i].name}
-                title={data[i].symbol}
-                attributes = {data[i].attributes}
-                description={`Why would anyone pick blue over pink Pink is obviously a better color`}
+                address={wallet}
+                image={`../../../../assets/NFTs/${data[i+1]?.symbol}.jpg`}
+                label={data[i+1]?.name}
+                title={data[i+1]?.symbol}
+                attributes = {data[i+1]?.attributes}
 
                 action={{
                   type: "internal",
-                  route: "/pages/profile/profile-overview",
+                  route: "",
                   color: "info",
                   label: "view on blockchain",
                 }}
             />
+            
           </Grid>
         ))}
         </Grid>
