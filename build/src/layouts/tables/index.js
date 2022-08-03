@@ -138,13 +138,14 @@ function Tables() {
                     <>
                     <Grid item xs={12} md={6} xl={3}>
                       <DefaultProjectCard
+                      address={wallet}
                         image={homeDecor1}
                         label={result[1]}
                         title="Dosa Sambhar"
                         description="Burn this to get a Dosa Sambhar invoice. (Valid for an hour)"
                         action={{
                           type: "internal",
-                          route: "/pages/profile/profile-overview",
+                          route: "",
                           color: "info",
                           label: "Burn Now",
                         }}
@@ -159,13 +160,14 @@ function Tables() {
                     <>
                     <Grid item xs={12} md={6} xl={3}>
                       <DefaultProjectCard
+                      address={wallet}
                         image={homeDecor1}
                         label={result[2]}
                         title="Pizza"
                         description="Burn this to get a Pizza invoice. (Valid for an hour)"
                         action={{
                           type: "internal",
-                          route: "/pages/profile/profile-overview",
+                          route: "w",
                           color: "info",
                           label: "Burn Now",
                         }}
@@ -180,13 +182,14 @@ function Tables() {
                     <>
                     <Grid item xs={12} md={6} xl={3}>
                       <DefaultProjectCard
+                      address={wallet}
                         image={homeDecor1}
                         label={result[3]}
                         title="Samosa"
                         description="Burn this to get a Samosa invoice. (Valid for an hour)"
                         action={{
                           type: "internal",
-                          route: "/pages/profile/profile-overview",
+                          route: "",
                           color: "info",
                           label: "Burn Now",
                         }}
