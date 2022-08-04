@@ -12,7 +12,8 @@ const jsonToPinata = async (json) =>  {
             url: 'https://api.pinata.cloud/pinning/pinJSONToIPFS',
             headers: { 
               'Content-Type': 'application/json', 
-              'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIwOGY3NzU0ZC04YjYyLTQ1NDMtYTZjNC04OTg0MzllYTI1OGMiLCJlbWFpbCI6InVkaXQuZHVkZTAxQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImlkIjoiRlJBMSIsImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxfSx7ImlkIjoiTllDMSIsImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxfV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiJjOTgwMDhjY2FkMGE4Mzk4NDY4ZiIsInNjb3BlZEtleVNlY3JldCI6ImI5MjVlOGE5NGYxYWExZGJiOGJkODVhMzc2YWM1Mjc4NDdkYWE0ZDNiZDNhMzdhYWEyZTg0ZTgzYzkwNWQxOWUiLCJpYXQiOjE2NTk2MjI2NjN9.iUZgy5xDnb8c7BD-m3G3dRovNClS4c8nzSoq8u2hb0Q',
+              pinata_api_key: 'c98008ccad0a8398468f',
+              pinata_secret_api_key: 'b925e8a94f1aa1dbb8bd85a376ac527847daa4d3bd3a37aaa2e84e83c905d19e',
             },
             data : data
           };
