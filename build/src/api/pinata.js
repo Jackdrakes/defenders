@@ -152,7 +152,7 @@ export const pinataWrapper = async (wallet, id , obj) =>  {
         console.log("inside piniat",data);
         const res = await jsonToPinata(data);
         console.log(res);
-        // const res2 = mintAchievement(res,wallet)
+        const res2 = mintAchievement(res.IpfsHash,wallet)
         return{
             sucess : true,
         };
