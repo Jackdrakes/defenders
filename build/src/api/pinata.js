@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { mintAchievement } from './operations/achievement';
 
 
 const jsonToPinata = async (json) =>  {
@@ -36,13 +37,13 @@ const jsonToPinata = async (json) =>  {
 
 }
 
-export const pinataWrapper = async (id , obj) =>  {
+export const pinataWrapper = async (wallet, id , obj) =>  {
 
     try {
 
         let data = {};
 
-        if(id === 0){
+        if(id === 1){
             // certi
             data.name = obj.name;
             data.description = obj.description;
@@ -72,7 +73,7 @@ export const pinataWrapper = async (id , obj) =>  {
         
 
         }
-        else if(id === 1){
+        else if(id === 2){
             // trophy
 
             data.name = obj.name;
@@ -111,7 +112,7 @@ export const pinataWrapper = async (id , obj) =>  {
               data.rights =  "All right reserved.";
               data.shouldPreferSymbol = true;
 
-        }else if (id === 2){
+        }else if (id === 3){
             // degree
 
             data.name = obj.name;
@@ -147,10 +148,10 @@ export const pinataWrapper = async (id , obj) =>  {
               data.shouldPreferSymbol = true;
         }
 
-
+        console.log("inside piniat",data);
         const res = await jsonToPinata(data);
         console.log(res);
-
+        // const res2 = mintAchievement(res,wallet)
         return{
             sucess : true,
         };

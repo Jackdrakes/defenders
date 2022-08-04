@@ -1,6 +1,6 @@
 import { wallet , tezos , CheckIfWalletConnected} from "./wallet";
 import { AchievementNFT } from "../../common/constants";
-import { char2Bytes } from "@taquito/taquito"
+import { char2Bytes } from '@taquito/utils';
 
 
 export const mintAchievement = async (
