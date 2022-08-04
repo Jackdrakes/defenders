@@ -117,6 +117,7 @@ function Tables() {
                     <Grid item xs={12} md={6} xl={3}>
                       <DefaultProjectCard
                         address={wallet}
+                        foodid={0}
                         image={homeDecor1}
                         label={result[0]}
                         title="Burger"
@@ -138,7 +139,8 @@ function Tables() {
                     <>
                     <Grid item xs={12} md={6} xl={3}>
                       <DefaultProjectCard
-                      address={wallet}
+                        address={wallet}
+                        foodid={1}
                         image={homeDecor1}
                         label={result[1]}
                         title="Dosa Sambhar"
@@ -162,6 +164,7 @@ function Tables() {
                       <DefaultProjectCard
                       address={wallet}
                         image={homeDecor1}
+                        foodid={2}
                         label={result[2]}
                         title="Pizza"
                         description="Burn this to get a Pizza invoice. (Valid for an hour)"
@@ -183,6 +186,7 @@ function Tables() {
                     <Grid item xs={12} md={6} xl={3}>
                       <DefaultProjectCard
                       address={wallet}
+                      foodid={3}
                         image={homeDecor1}
                         label={result[3]}
                         title="Samosa"

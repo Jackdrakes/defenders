@@ -72,6 +72,7 @@ function Overview({}) {
 
     async function getBal() {
       const res = await getAchievements(wallet);
+      console.log(res.value)
       setResult(Object.entries(res?.value).map((e)=>({[e[0]]:e[1]})))      
     }
     console.log(result)
