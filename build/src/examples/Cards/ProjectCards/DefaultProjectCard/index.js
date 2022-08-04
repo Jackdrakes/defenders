@@ -38,17 +38,17 @@ import Samosaimg from "../../../../assets/NFTs/Samosa.jpeg"
 import Pizzaimg from "../../../../assets/NFTs/Pizza.jpeg"
 import { burnFood } from "api/operations/canteen";
 function DefaultProjectCard({ image, label, title, description, action, authors , attributes ,address , foodid}) {
-  if(title ==="DEG"){
+  if(label ==="DEG"){
     image = DEGimg
-  } else if (title ==="CERT"){
+  } else if (label ==="CERT"){
     image = CERTimg
-  } else if (title ==="TROPH"){
+  } else if (label ==="TROPH"){
     image = TROPHimg
-  } else if (title ==="Burger"){
+  } else if (label ==="Burger"){
     image = BUrgerimg
-  } else if (title ==="Dosa Sambhar"){
+  } else if (label ==="Dosa Sambhar"){
     image = Dosaimg
-  } else if (title ==="Samosa"){
+  } else if (label ==="Samosa"){
     image = Samosaimg
   } else  {
     image = Pizzaimg

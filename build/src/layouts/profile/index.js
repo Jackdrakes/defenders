@@ -74,7 +74,6 @@ function Overview({}) {
       const res = await getAchievements(wallet);
       setResult(Object.entries(res?.value).map((e)=>({[e[0]]:e[1]})))      
     }
-    console.log(result)
   return (
     <DashboardLayout>
       <MDBox mb={2} />
@@ -152,10 +151,10 @@ function Overview({}) {
             <Grid item xs={12} md={6} xl={3}>
               <DefaultProjectCard
                 address={wallet}
-                image={`../../../../assets/NFTs/${data[i+1]?.symbol}.jpg`}
-                label={data[i+1]?.name}
-                title={data[i+1]?.symbol}
-                attributes = {data[i+1]?.attributes}
+                image={`../../../../assets/NFTs/${data[i]?.symbol}.jpg`}
+                label={data[i]?.symbol}
+                title={data[i]?.name}
+                attributes = {data[i]?.attributes}
 
                 action={{
                   type: "internal",

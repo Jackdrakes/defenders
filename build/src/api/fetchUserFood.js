@@ -50,7 +50,7 @@ export const getAchievements = async (address) =>  {
         const data = response.data;
 
 
-        let value = {};
+        let value = [];
 
         for(var i = 0 ; i< data.length ; i++){
             if (data[i].balance!=0){
