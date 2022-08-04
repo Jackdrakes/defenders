@@ -119,8 +119,8 @@ function Tables() {
                         address={wallet}
                         foodid={0}
                         image={homeDecor1}
-                        label={result[0]}
-                        title="Burger"
+                        label="Burger"
+                        title={`Burger x${result[0]}`}
                         description="Burn this to get a Burger invoice. (Valid for an hour)"
                         action={{
                           type: "internal",
@@ -142,8 +142,8 @@ function Tables() {
                         address={wallet}
                         foodid={1}
                         image={homeDecor1}
-                        label={result[1]}
-                        title="Dosa Sambhar"
+                        label="Dosa Sambhar"
+                        title={`Dosa Sambhar x${result[1]}`}
                         description="Burn this to get a Dosa Sambhar invoice. (Valid for an hour)"
                         action={{
                           type: "internal",
@@ -165,8 +165,8 @@ function Tables() {
                       address={wallet}
                         image={homeDecor1}
                         foodid={2}
-                        label={result[2]}
-                        title="Pizza"
+                        label="Pizza"
+                        title={`Pizza x${result[2]}`}
                         description="Burn this to get a Pizza invoice. (Valid for an hour)"
                         action={{
                           type: "internal",
@@ -188,8 +188,8 @@ function Tables() {
                       address={wallet}
                       foodid={3}
                         image={homeDecor1}
-                        label={result[3]}
-                        title="Samosa"
+                        label="Samosa"
+                        title={`Samosa x${result[3]}`}
                         description="Burn this to get a Samosa invoice. (Valid for an hour)"
                         action={{
                           type: "internal",

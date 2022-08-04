@@ -60,6 +60,7 @@ import { getAchievements } from "api/fetchUserFood";
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { claimSemestralAllowance } from "api/operations/minter";
+import { claimDeanListAllowance } from './../../api/operations/minter';
 
 
 function Overview({}) {
@@ -104,7 +105,7 @@ function Overview({}) {
               value="+200 NCUT"
             />
             <MDBox  my={1}>
-            <MDButton variant="gradient" color="info" fullWidth>Claim</MDButton>
+            <MDButton variant="gradient" color="info" onClick={() => {claimDeanListAllowance(wallet)}} fullWidth>Claim</MDButton>
             </MDBox>
             </MDBox>
           </Grid>

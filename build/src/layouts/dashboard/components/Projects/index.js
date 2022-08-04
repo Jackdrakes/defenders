@@ -36,9 +36,9 @@ import MDButton from "components/MDButton";
 // Data
 
 function Projects() {
-
+  const [data,setData] = useState({});
   const [age, setAge] = React.useState('');
-
+  console.log(data);
   const handleChange = (event) => {
     setAge(event.target.value);
   };
@@ -53,7 +53,7 @@ function Projects() {
         </MDBox>
       </MDBox>
       <MDBox my={1} mx={2} >
-        <MDInput type="text" label="Send to"  fullWidth/>
+        <MDInput type="text" label="Send to"  onChange={e=>setData({...data,name:e.target.value})} fullWidth/>
       </MDBox>
       <MDBox my={1} mx={2} mb={0}>
       <FormControl fullWidth style={{height:"45px"}} >

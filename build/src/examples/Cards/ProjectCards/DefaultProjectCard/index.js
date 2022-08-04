@@ -46,12 +46,16 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
     image = TROPHimg
   } else if (label ==="Burger"){
     image = BUrgerimg
+    label = ''
   } else if (label ==="Dosa Sambhar"){
     image = Dosaimg
+    label = ''
   } else if (label ==="Samosa"){
     image = Samosaimg
+    label = ''
   } else  {
     image = Pizzaimg
+    label = ''
   }
   const renderAuthors = authors.map(({ image: media, name }) => (
     <Tooltip key={name} title={name} placement="bottom">
@@ -108,7 +112,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
             >
               {title} 
               <MDTypography variant="caption" ml={1}>
-              x {label}
+              {label}
               </MDTypography>
             </MDTypography>
           ) : (
