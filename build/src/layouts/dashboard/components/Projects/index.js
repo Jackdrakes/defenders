@@ -40,7 +40,6 @@ function Projects() {
   const [data,setData] = useState({});
   const [reciever,setReciever] = useState('');
   const [age, setAge] = React.useState('');
-  console.log(data);
   const handleChange = (event) => {
     setAge(event.target.value);
   };

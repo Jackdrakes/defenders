@@ -156,7 +156,8 @@ function App() {
 
   return (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
-      <CssBaseline />
+      <CssBaseline />      
+      <manageFunc.Provider value={{balance, wallet, setBalance, setWallet}}>
       {layout === "dashboard" && (
         <>
           <Sidenav
@@ -171,7 +172,6 @@ function App() {
           {configsButton}
         </>
       )}
-      <manageFunc.Provider value={{balance, wallet, setBalance, setWallet}}>
       <DashboardNavbar/>
       {layout === "vr" && <Configurator />}
       <Routes>

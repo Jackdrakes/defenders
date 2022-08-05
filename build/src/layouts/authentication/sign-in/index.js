@@ -73,7 +73,7 @@ function Basic({wallet,balance}) {
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
             <MDBox mt={4} mb={1}
-            component={Link} to="/dashboard">
+            component={Link} to="/profile">
               <MDButton variant="gradient" color="info" fullWidth>
                 connect
               </MDButton>

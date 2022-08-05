@@ -13,7 +13,7 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useEffect } from "react";
+import { useEffect ,useState } from "react";
 
 // react-router-dom components
 import { useLocation, NavLink } from "react-router-dom";
@@ -47,14 +47,22 @@ import {
   setTransparentSidenav,
   setWhiteSidenav,
 } from "context";
+import { useContext } from 'react';
+import { manageFunc } from 'App';
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
+  
+  const{ wallet } = useContext(manageFunc);
   const [controller, dispatch] = useMaterialUIController();
   const { miniSidenav, transparentSidenav, whiteSidenav, darkMode, sidenavColor } = controller;
   const location = useLocation();
   const collapseName = location.pathname.replace("/", "");
-
+  var flag = false;
   let textColor = "white";
+
+    useEffect(() => {
+      check(flag);
+  },[wallet])
 
   if (transparentSidenav || (whiteSidenav && !darkMode)) {
     textColor = "dark";
@@ -62,8 +70,22 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
     textColor = "inherit";
   }
 
-  const closeSidenav = () => setMiniSidenav(dispatch, true);
+  if(wallet==="tz1NaGu7EisUCyfJpB16ktNxgSqpuMo8aSEk"){
+    flag = true;
+  }
 
+  const [routes_if, setRoutes_if] = useState(null);
+
+
+  const check = (flag) => {
+    if  (flag===false){
+      setRoutes_if(routes.filter(route => route.name!=="Dashboard"))
+    }
+    else {
+      console.log(routes_if,"else")
+    }
+  }
+  const closeSidenav = () => setMiniSidenav(dispatch, true);
   useEffect(() => {
     // A function that sets the mini state of the sidenav.
     function handleMiniSidenav() {
@@ -85,7 +107,8 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   }, [dispatch, location]);
 
   // Render all the routes from the routes.js (All the visible items on the Sidenav)
-  const renderRoutes = routes.filter(route => route.name!=="Connect").map(({ type, name, icon, title, noCollapse, key, href, route }) => {
+  const renderRoutes = routes_if?.filter(route => route.name!=="Connect").map(({ type, name, icon, title, noCollapse, key, href, route }) => {
+
     let returnValue;
 
     if (type === "collapse") {

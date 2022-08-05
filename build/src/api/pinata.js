@@ -21,7 +21,6 @@ const jsonToPinata = async (json) =>  {
           
           const res = await axios(config);
           
-          console.log(res.data);
 
 
         return{
@@ -151,9 +150,7 @@ export const pinataWrapper = async (wallet, id , obj) =>  {
               data.shouldPreferSymbol = true;
         }
 
-        console.log("inside piniat",data);
         const res = await jsonToPinata(data);
-        console.log('wrapper' , res);
         const res2 = mintAchievement(res.Ipfs ,wallet);
         return{
             sucess : true,
