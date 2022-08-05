@@ -154,7 +154,16 @@ function DashboardNavbar({ absolute, light, isMini}) {
     setBalance(res.balance);
   };  
 
+  useEffect(() => {
+    if(wallet && wallet != null) {
+      localStorage.setItem( 'wallet', wallet );
+    }
+    console.log("set wallet done")
+    
+    
 
+  }, [wallet]);
+  
   const handleConnectWallet = async () => {
     // console.log(wallet)
     const wal  = await ConnectWalletAPI();

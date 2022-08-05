@@ -154,6 +154,12 @@ function App() {
   const [balance, setBalance] = useState(null);
   const [wallet, setWallet] = useState(null);
 
+  useEffect(() => {
+    setWallet(localStorage.getItem('wallet'));
+    console.log(localStorage.getItem('wallet'))
+  }, []);
+
+  
   return (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
       <CssBaseline />      
