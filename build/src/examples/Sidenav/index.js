@@ -82,7 +82,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       setRoutes_if(routes.filter(route => route.name!=="Dashboard"))
     }
     else {
-      console.log(routes_if,"else")
+      setRoutes_if(routes)
     }
   }
   const closeSidenav = () => setMiniSidenav(dispatch, true);
