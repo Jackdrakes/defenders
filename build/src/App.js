@@ -54,6 +54,7 @@ import brandWhite from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import { createContext } from 'react';
+import { getUserBalanceByRpc } from 'api/balance';
 window.Buffer = window.Buffer || require("buffer").Buffer; 
 
 const manageFunc = createContext(null);
@@ -153,15 +154,21 @@ function App() {
 
   const [balance, setBalance] = useState(null);
   const [wallet, setWallet] = useState(null);
-
+  
+  const fetchBal = async (address) => {
+    let res = await getUserBalanceByRpc(address);
+    setBalance(res.balance);
+  }; 
   useEffect(() => {
     setWallet(localStorage.getItem('wallet'));
-    console.log(localStorage.getItem('wallet'))
-  }, []);
+    console.log(localStorage.getItem('wallet'),"here set wallet");
+    fetchBal(localStorage.getItem('wallet'));
+  }, [localStorage.getItem('wallet')]);
 
   
   return (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
+      {console.log(wallet,"from return")}
       <CssBaseline />      
       <manageFunc.Provider value={{balance, wallet, setBalance, setWallet}}>
       {layout === "dashboard" && (

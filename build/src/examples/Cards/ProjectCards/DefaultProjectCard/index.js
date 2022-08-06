@@ -68,20 +68,25 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
     label = ''
   }
   const [open, setOpen] = useState(false);
+  const [invoice, setInvoice] = useState(false);
+  const [opID, setopID] = useState("");
   
-  let opID = ""
 
   const handleClose = () => {
     setOpen(false);
   };
+  const handleCloseinvoice = () => {
+    setInvoice(false);
+  };
 
   const handleBurn = async (wallet,id,amount) =>{
-    alert("Your invoice is being generated, It can take upto 2 minutes, dont refresh the page.");
+    setOpen(true);
     const burn = await burnFood(wallet,id,amount);
     if(burn.success){
-      opID = "https://ghostnet.tzkt.io/"+burn.operationId;
+      setopID("https://ghostnet.tzkt.io/"+burn.operationId);
       console.log(opID,burn.operationId)
-      setOpen(true);
+      setOpen(false);
+      setInvoice(true);
     }
   }
   
@@ -117,8 +122,8 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
       }}
     >
       <Dialog
-        open={open}
-        onClose={handleClose}
+        open={invoice}
+        onClose={handleCloseinvoice}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -127,14 +132,44 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            You've Successfully Burned a FoodNFT<br/>You can find your transection hash here :
-            <Link href={opID} target="_blank" color="blue">tzKT tx-hash</Link>
+            You've burnt a FoodNFT, verify your hash below:
+            {console.log(opID)}
+            <br/> <Link href={opID} target="_blank"color="blue"> Click here</Link>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} autoFocus>
-            Done
-          </Button>
+          {
+              <Button onClick={handleCloseinvoice} autoFocus>
+                Done
+              </Button>
+            }
+          
+        </DialogActions>
+      </Dialog>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Your Invoice"}s
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Your invoice is being generated, please wait for few seconds.<br/><br/>
+            Dont close this pop-up
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          {
+              opID?<>
+              <Button onClick={handleClose} autoFocus>
+                Done
+              </Button>
+              </>:<></>
+            }
+          
         </DialogActions>
       </Dialog>
       <MDBox position="relative" width="100.25%" shadow="xl" borderRadius="xl">

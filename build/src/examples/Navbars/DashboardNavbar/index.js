@@ -149,7 +149,6 @@ function DashboardNavbar({ absolute, light, isMini}) {
   const nwallet = null;
   const fetchBal = async (address) => {
     res = await getUserBalanceByRpc(address);
-    console.log(wallet,res)
     // const tez = await getTezBalance(address);
     setBalance(res.balance);
   };  
@@ -157,11 +156,7 @@ function DashboardNavbar({ absolute, light, isMini}) {
   useEffect(() => {
     if(wallet && wallet != null) {
       localStorage.setItem( 'wallet', wallet );
-    }
-    console.log("set wallet done")
-    
-    
-
+    }  
   }, [wallet]);
   
   const handleConnectWallet = async () => {
@@ -176,15 +171,15 @@ function DashboardNavbar({ absolute, light, isMini}) {
     setBalance(null);
   };
 
-  useEffect(() => {
-    const func = async () => {
-      const account = await FetchWalletAPI();
-      if (account) {
-        setWallet(account.address);
-      }
-    };
-    func();
-  }, []);
+  // useEffect(() => {
+  //   const func = async () => {
+  //     const account = await FetchWalletAPI();
+  //     if (account) {
+  //       setWallet(account.address);
+  //     }
+  //   };
+  //   func();
+  // }, []);
 
 
 
