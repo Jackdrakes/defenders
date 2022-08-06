@@ -3,12 +3,10 @@ import { BeaconWallet } from '@taquito/beacon-wallet';
 import { TezosToolkit } from '@taquito/taquito';
 
 
-// TODO : Must Call this file at Page Load like REDUX
-
 // Beacon Wallet instance
 export const wallet = new BeaconWallet({
     name: "College Network",
-    preferredNetwork: connectedNetwork
+    preferredNetwork: 'custom'
   });
   
   // Tezos instance
@@ -24,7 +22,7 @@ export const ConnectWalletAPI = async () => {
       console.log(wallet);
       await wallet.requestPermissions({
         network: {
-          type: connectedNetwork,
+          type: 'custom',
           rpcUrl: rpcNode,
         }
       });
