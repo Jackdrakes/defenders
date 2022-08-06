@@ -39,7 +39,6 @@ import Pizzaimg from "../../../../assets/NFTs/Pizza.jpeg"
 import loader from "../../../../assets/images/icons/loader.gif"
 import { burnFood } from "api/operations/canteen";
 // 
-import { Alert } from 'react-alert'
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -68,10 +67,10 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
     image = Pizzaimg
     label = ''
   }
-  const [open, setOpen] = useState(false);
-  const [invoice, setInvoice] = useState(false);
   const [opID, setopID] = useState("");
   
+  const [open, setOpen] = useState(false);
+  const [invoice, setInvoice] = useState(false);
 
   const handleClose = () => {
     setOpen(false);

@@ -93,7 +93,6 @@ export const mintFood = async (
       const batchOperation = await batch.send();
   
       await batchOperation.confirmation().then(() => batchOperation.opHash);
-      console.log(batchOperation)
       return {
         success: true,
         operationId: batchOperation.opHash,
@@ -137,7 +136,7 @@ export const mintFood = async (
       await batchOperation.confirmation().then(() => batchOperation.opHash);
       return {
         success: true,
-        operationId: batchOperation.hash,
+        operationId: batchOperation.opHash,
       };
     } catch (error) {
       console.log(error);
