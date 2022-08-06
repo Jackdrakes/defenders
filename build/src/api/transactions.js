@@ -3,7 +3,6 @@ import { NcuCoinDistributor , NCUCoin , Canteen , FoodNFT ,AchievementNFT ,  } f
 
 export const getUserTransactions = async (address) => {
     try {
-      console.log(address);
 
       const response = await Promise.all(
           axios.get(`https://api.ghostnet.tzkt.io/v1/accounts/${address}/operations?target=${NcuCoinDistributor}`),

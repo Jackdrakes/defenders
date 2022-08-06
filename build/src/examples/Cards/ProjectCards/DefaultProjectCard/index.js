@@ -14,7 +14,7 @@ Coded by www.creative-tim.com
 */
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import Link from '@mui/material/Link';
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
@@ -37,6 +37,16 @@ import Dosaimg from "../../../../assets/NFTs/Idli.jpeg"
 import Samosaimg from "../../../../assets/NFTs/Samosa.jpeg"
 import Pizzaimg from "../../../../assets/NFTs/Pizza.jpeg"
 import { burnFood } from "api/operations/canteen";
+// 
+import { Alert } from 'react-alert'
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import { useState } from 'react';
+import Button from '@mui/material/Button';
+
 function DefaultProjectCard({ image, label, title, description, action, authors , attributes ,address , foodid}) {
   if(label ==="DEG"){
     image = DEGimg
@@ -57,8 +67,27 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
     image = Pizzaimg
     label = ''
   }
+  const [open, setOpen] = useState(false);
+  
+  let opID = ""
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleBurn = async (wallet,id,amount) =>{
+    alert("Your invoice is being generated, It can take upto 2 minutes, dont refresh the page.");
+    const burn = await burnFood(wallet,id,amount);
+    if(burn.success){
+      opID = "https://ghostnet.tzkt.io/"+burn.operationId;
+      console.log(opID,burn.operationId)
+      setOpen(true);
+    }
+  }
+  
   const renderAuthors = authors.map(({ image: media, name }) => (
     <Tooltip key={name} title={name} placement="bottom">
+      
       <MDAvatar
         src={media}
         alt={name}
@@ -87,6 +116,27 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
         overflow: "visible",
       }}
     >
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Your Invoice"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            You've Successfully Burned a FoodNFT<br/>You can find your transection hash here :
+            <Link href={opID} target="_blank" color="blue">tzKT tx-hash</Link>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} autoFocus>
+            Done
+          </Button>
+        </DialogActions>
+      </Dialog>
       <MDBox position="relative" width="100.25%" shadow="xl" borderRadius="xl">
         <CardMedia
           src={image}
@@ -142,7 +192,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
           {action.type === "internal" && address ? (
             <MDButton
               // to={action.route}
-              onClick={()=>{burnFood(address,foodid,1)}}
+              onClick={()=>{handleBurn(address,foodid,1)}}
               variant="outlined"
               size="small"
               color={action.color}

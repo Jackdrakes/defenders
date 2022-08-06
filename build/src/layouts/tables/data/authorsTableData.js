@@ -34,7 +34,9 @@ import MDButton from "components/MDButton";
 import { mintFood } from './../../../api/operations/canteen';
 
 export default function data() {
- 
+  
+  
+
   const Author = ({ image, name, email }) => (
     <MDBox display="flex" alignItems="center" lineHeight={1}>
       <MDAvatar src={image} name={name} size="sm" />

@@ -31,8 +31,15 @@ import Footer from "examples/Footer";
 // import Invoices from "layouts/billing/components/Invoices";
 import BillingInformation from "layouts/billing/components/BillingInformation";
 import Transactions from "layouts/billing/components/Transactions";
+import { useContext } from 'react';
+import { manageFunc } from 'App';
+import { getUserTransactions } from './../../api/transactions';
 
-function Billing({wallet,balance}) {
+function Billing() {
+  const {wallet,balance} = useContext(manageFunc);
+  if(wallet){
+    console.log(getUserTransactions(wallet),"inside billing");
+  }
   return (
     <DashboardLayout>
       <MDBox mt={8}>
