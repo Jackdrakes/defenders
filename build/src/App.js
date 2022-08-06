@@ -161,14 +161,12 @@ function App() {
   }; 
   useEffect(() => {
     setWallet(localStorage.getItem('wallet'));
-    console.log(localStorage.getItem('wallet'),"here set wallet");
     fetchBal(localStorage.getItem('wallet'));
   }, [localStorage.getItem('wallet')]);
 
   
   return (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
-      {console.log(wallet,"from return")}
       <CssBaseline />      
       <manageFunc.Provider value={{balance, wallet, setBalance, setWallet}}>
       {layout === "dashboard" && (

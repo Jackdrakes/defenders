@@ -23,8 +23,9 @@ import Icon from "@mui/material/Icon";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDButton from "components/MDButton";
+import { Link } from "@mui/material";
 
-function Transaction({ color, icon, name, description, value }) {
+function Transaction({ color, icon, name, description, value , hash}) {
   return (
     <MDBox key={name} component="li" py={1} pr={2} mb={1}>
       <MDBox display="flex" justifyContent="space-between" alignItems="center">
@@ -43,9 +44,9 @@ function Transaction({ color, icon, name, description, value }) {
             </MDTypography>
           </MDBox>
         </MDBox>
-        <MDTypography variant="button" color={color} fontWeight="medium" textGradient>
-          {value}
-        </MDTypography>
+        <MDButton variant="button" color={color} fontWeight="medium" textGradient>
+          <Link href={`https://ghostnet.tzkt.io/`+hash} target="_blank">{value}</Link>
+        </MDButton>
       </MDBox>
     </MDBox>
   );

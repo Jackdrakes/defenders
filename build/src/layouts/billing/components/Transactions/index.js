@@ -23,12 +23,27 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 // import MDButton from "components/MDButton";
 
+
 // Billing page components
 import Transaction from "layouts/billing/components/Transaction";
+import { useContext } from 'react';
+import { manageFunc } from 'App';
+import { getUserTransactions } from './../../../../api/transactions';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 function Transactions() {
+  const {wallet} = useContext(manageFunc);
+  const [txs, setTxs] = useState(null);
+  const fetchTx = async () =>{
+    const txss = await getUserTransactions(wallet);
+    setTxs(txss.transactions.slice(0,6))
+  }
+  useEffect(()=>(
+    fetchTx()
+  ),[wallet])
   return (
-    <Card sx={{ height: "100%" }}>
+    <Card sx={{ height: "100%" , maxHeight: "100%"  }}>
       <MDBox display="flex" justifyContent="space-between" alignItems="center" pt={3} px={2}>
         <MDTypography variant="h6" fontWeight="medium" textTransform="capitalize">
           Your Transaction&apos;s
@@ -47,7 +62,7 @@ function Transactions() {
       <MDBox pt={3} pb={2} px={2}>
         <MDBox mb={2}>
           <MDTypography variant="caption" color="text" fontWeight="bold" textTransform="uppercase">
-            newest
+            recent interactions
           </MDTypography>
         </MDBox>
         <MDBox
@@ -56,50 +71,36 @@ function Transactions() {
           flexDirection="column"
           p={0}
           m={0}
-          sx={{ listStyle: "none" }}
+          sx={{ listStyle: "none" , alignItems:"stretch"}}
         >
+         {txs && txs.map((data,i)=> (
+          <>
           <Transaction
+            color="success"
+            icon="done"
+            hash = {data.hash}
+            name={data.entrypoint}
+            description={data.time}
+            value="View on tzkt"
+          />
+          </>
+
+         ))}
+          {/* <Transaction
             color="error"
             icon="expand_more"
             name="Netflix"
             description="27 March 2020, at 12:30 PM"
-            value="- $ 2,500"
+            value=""
           />
+          
           <Transaction
             color="success"
-            icon="expand_less"
-            name="Apple"
-            description="27 March 2020, at 04:30 AM"
-            value="+ $ 2,000"
-          />
-        </MDBox>
-        <MDBox mt={1} mb={2}>
-          <MDTypography variant="caption" color="text" fontWeight="bold" textTransform="uppercase">
-            yesterday
-          </MDTypography>
-        </MDBox>
-        <MDBox
-          component="ul"
-          display="flex"
-          flexDirection="column"
-          p={0}
-          m={0}
-          sx={{ listStyle: "none" }}
-        >
-          <Transaction
-            color="success"
-            icon="expand_less"
-            name="Stripe"
-            description="26 March 2020, at 13:45 PM"
-            value="+ $ 750"
-          />
-          <Transaction
-            color="dark"
-            icon="priority_high"
+            icon="done"
             name="Webflow"
             description="26 March 2020, at 05:00 AM"
             value="Pending"
-          />
+          /> */}
         </MDBox>
       </MDBox>
     </Card>

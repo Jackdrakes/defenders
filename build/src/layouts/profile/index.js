@@ -156,10 +156,10 @@ function Overview({}) {
                 label={data[i]?.symbol}
                 title={data[i]?.name}
                 attributes = {data[i]?.attributes}
-
+                
                 action={{
-                  type: "internal",
-                  route: "",
+                  type: "external",
+                  route: "https://ghostnet.tzkt.io/KT1KU4krNtEbiapDXvjMzL4YJ1WXiMF8MHFy/tokens",
                   color: "info",
                   label: "view on blockchain",
                 }}

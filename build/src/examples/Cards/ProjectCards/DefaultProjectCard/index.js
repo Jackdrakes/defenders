@@ -36,6 +36,7 @@ import BUrgerimg from "../../../../assets/NFTs/Burger.jpeg"
 import Dosaimg from "../../../../assets/NFTs/Idli.jpeg"
 import Samosaimg from "../../../../assets/NFTs/Samosa.jpeg"
 import Pizzaimg from "../../../../assets/NFTs/Pizza.jpeg"
+import loader from "../../../../assets/images/icons/loader.gif"
 import { burnFood } from "api/operations/canteen";
 // 
 import { Alert } from 'react-alert'
@@ -156,9 +157,9 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
           {"Your Invoice"}s
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+          <DialogContentText id="alert-dialog-description" style={{textAlign:"center"}}>
             Your invoice is being generated, please wait for few seconds.<br/><br/>
-            Dont close this pop-up
+            <img src={loader} style={{margin:"-20px 0"}} alt="loading..." />
           </DialogContentText>
         </DialogContent>
         <DialogActions>

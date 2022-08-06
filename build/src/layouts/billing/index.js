@@ -21,10 +21,6 @@ import { manageFunc } from 'App';
 import { getUserTransactions } from './../../api/transactions';
 
 function Billing() {
-  const {wallet,balance} = useContext(manageFunc);
-  if(wallet){
-    console.log(getUserTransactions(wallet),"inside billing");
-  }
   return (
     <DashboardLayout>
       <MDBox mt={8}>
