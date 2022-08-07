@@ -40,11 +40,26 @@ import BasicLayout from "layouts/authentication/components/BasicLayout";
 
 // Images
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
+import { useContext } from 'react';
+import { manageFunc } from 'App';
+import { ConnectWalletAPI } from './../../../api/operations/wallet';
+import { getUserBalanceByRpc } from './../../../api/balance';
 
-function Basic({wallet,balance}) {
+function Basic() {
+  const {wallet, setWallet, setBalance} = useContext(manageFunc);
   const [rememberMe, setRememberMe] = useState(false);
 
-  const handleSetRememberMe = () => setRememberMe(!rememberMe);
+  const handleConnectWallet = async () => {
+    // console.log(wallet)
+    const wal  = await ConnectWalletAPI();
+    setWallet(wal.wallet)
+    fetchBal(wal.wallet);
+  };
+  const fetchBal = async (address) => {
+    const res = await getUserBalanceByRpc(address);
+    // const tez = await getTezBalance(address);
+    setBalance(res.balance);
+  };  
 
   return (
     <BasicLayout image={bgImage}>
@@ -65,19 +80,34 @@ function Basic({wallet,balance}) {
           </MDTypography>
           
           <MDBox textAlign="center" my={1} >
+            {wallet?
+            <>
+            <MDTypography variant="caption" color="white">
+              Wallet already connected.
+            </MDTypography>
+            </>:
+            <>
             <MDTypography variant="caption" color="white">
               Connect to your Tezos wallet
             </MDTypography>
+            </>}
           </MDBox>
         </MDBox>
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
-            <MDBox mt={4} mb={1}
-            component={Link} to="/profile">
-              <MDButton variant="gradient" color="info" fullWidth>
-                connect
-              </MDButton>
-            </MDBox>
+            {wallet?<>
+              <MDBox mt={4} mb={1} component={Link} to="/profile">
+                <MDButton variant="gradient" color="info" fullWidth>
+                  Go to Profile
+                </MDButton>
+              </MDBox>
+            </>:<>
+              <MDBox mt={4} mb={1} >
+                <MDButton variant="gradient" color="info" onClick={()=>handleConnectWallet()} fullWidth>
+                  Connect Wallet
+                </MDButton>
+              </MDBox>
+            </>}
           </MDBox>
         </MDBox>
       </Card>
