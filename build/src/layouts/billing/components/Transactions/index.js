@@ -80,7 +80,7 @@ function Transactions() {
             icon="done"
             hash = {data.hash}
             name={data.entrypoint}
-            description={data.time}
+            description={data.time.toString()}
             value="View on tzkt"
           />
           </>
