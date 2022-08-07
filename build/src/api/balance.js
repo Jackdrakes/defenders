@@ -31,7 +31,6 @@ const getPackedKey = (tokenId, address, type) => {
 
 export const getUserBalanceByRpc = async (address) => {
     try {
-      console.log(address);
 
       const mapId = 156082;
       const rpcNode = 'https://ghostnet.smartpy.io/'

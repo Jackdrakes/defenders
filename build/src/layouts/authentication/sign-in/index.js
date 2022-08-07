@@ -50,7 +50,6 @@ function Basic() {
   const [rememberMe, setRememberMe] = useState(false);
 
   const handleConnectWallet = async () => {
-    // console.log(wallet)
     const wal  = await ConnectWalletAPI();
     setWallet(wal.wallet)
     fetchBal(wal.wallet);

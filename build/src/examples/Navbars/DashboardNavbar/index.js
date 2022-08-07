@@ -160,7 +160,6 @@ function DashboardNavbar({ absolute, light, isMini}) {
   }, [wallet]);
   
   const handleConnectWallet = async () => {
-    // console.log(wallet)
     const wal  = await ConnectWalletAPI();
     setWallet(wal.wallet)
     fetchBal(wal.wallet);

@@ -74,9 +74,9 @@ function Projects() {
           onChange={handleChange}
           style={{height:"45px"}}
         >
-          <MenuItem value={1}>Trophy</MenuItem>
-          <MenuItem value={2}>Degree</MenuItem>
-          <MenuItem value={3}>Certificate</MenuItem>
+          <MenuItem value={1}>Certificate</MenuItem>
+          <MenuItem value={2}>Trophy</MenuItem>
+          <MenuItem value={3}>Degree</MenuItem>
         </Select>
       </FormControl>
       </MDBox>

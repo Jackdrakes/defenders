@@ -19,7 +19,6 @@ export const ConnectWalletAPI = async () => {
   try {
     let account = await wallet.client.getActiveAccount();
     if (!account) {
-      console.log(wallet);
       await wallet.requestPermissions({
         network: {
           type: 'custom',
@@ -28,7 +27,6 @@ export const ConnectWalletAPI = async () => {
       });
       
       account = await wallet.client.getActiveAccount();
-      console.log(account);
     }
     if (account) {
       return {

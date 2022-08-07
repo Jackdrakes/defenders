@@ -33,7 +33,6 @@ import CERTimg from "../../../../assets/NFTs/CERT.jpg"
 import DEGimg from "../../../../assets/NFTs/DEG.jpg"
 import TROPHimg from "../../../../assets/NFTs/TROPH.jpg"
 function DefaultProjectCard({ image, label, title, description, action, authors , attributes }) {
-  console.log(image)
   if(title ==="DEG"){
     image = DEGimg
   } else if (title ==="CERT"){

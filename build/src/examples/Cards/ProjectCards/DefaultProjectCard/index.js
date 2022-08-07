@@ -84,7 +84,6 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
     const burn = await burnFood(wallet,id,amount);
     if(burn.success){
       setopID("https://ghostnet.tzkt.io/"+burn.operationId);
-      console.log(opID,burn.operationId)
       setOpen(false);
       setInvoice(true);
     }

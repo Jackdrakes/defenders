@@ -8,9 +8,6 @@ export const mintAchievement = async (
     metadata,
     address
   ) => {
-
-    console.log(metadata);
-    console.log(address);
     try {
       const WALLET_RESP = await CheckIfWalletConnected(wallet);
       if (!WALLET_RESP.success) {
