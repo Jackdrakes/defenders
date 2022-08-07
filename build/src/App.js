@@ -180,7 +180,6 @@ function App() {
             onMouseLeave={handleOnMouseLeave}
           />
           <Configurator />
-          {configsButton}
         </>
       )}
       <DashboardNavbar/>
