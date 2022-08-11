@@ -23,6 +23,16 @@ CanteenWallet : tz1VdqimZ3DQGKkE3oB8mVn62qhuvm3GeJiS
 Library Wallet : tz1NhKzAZkzB1SExnt1ECtfvuGE6n5VSLctL
 
 
+To Run in your local machine 
+
+1. Clone The Repo
+2. Go Into build folder
+ ``` cd build ```
+3. Install required packages
+  ``` yarn isntall```
+4. Build the FE
+ ``` yarn dev ```
+
 
 
 
