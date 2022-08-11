@@ -5,6 +5,9 @@ Decentralised Network for College to make students aware about Blockchain
 ## Live At : https://ncucoin.netlify.app/
 
 To Test the Ghostnet version Create a Issue and drop your tz1... address and we will include you in the Beta.
+Alternatively you can import the following private key in your wallet 
+```edskRnd4QAZ6z9idNR5qvXy86JyTd5G8RV4Yrpo7YWGxzdUfvM4BFVRVdQjLKRS6nyu6gG3ntYDbQxoCqURj7XMQ2h2JbUfCHf```
+Be Aware : This is a publically available Dummy Account Do Not Use On Mainnet
 
 
 
