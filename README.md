@@ -2,13 +2,13 @@
 Decentralised Network for College to make students aware about Blockchain 
 
 
-##Live At : https://ncucoin.netlify.app/
+## Live At : https://ncucoin.netlify.app/
 
 To Test the Ghostnet version Create a Issue and drop your tz1... address and we will include you in the Beta.
 
 
 
-##Deployed Contracts
+## Deployed Contracts
 
 NCUCoin : KT1AefyQpVfjupNFKBoKqrVHtHnCSZ7AKBtX
 
@@ -22,7 +22,7 @@ NcuCoin Distributor : KT1LZ83BTJVhaakmS7G51KfCeKZy663PRrLg
 
 
 
-##Wallets
+## Wallets
 
 admin : tz1NaGu7EisUCyfJpB16ktNxgSqpuMo8aSEk
 
@@ -31,7 +31,7 @@ CanteenWallet : tz1VdqimZ3DQGKkE3oB8mVn62qhuvm3GeJiS
 Library Wallet : tz1NhKzAZkzB1SExnt1ECtfvuGE6n5VSLctL
 
 
-##To Run in your local machine 
+## To Run in your local machine 
 
 1. Clone The Repo
 2. Go Into build folder
