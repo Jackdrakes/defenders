@@ -1,5 +1,10 @@
 # CollegeNetwork
-Decentralised Network for College to make students aware about Blockchain made for Binance Ideathon
+Decentralised Network for College to make students aware about Blockchain 
+
+
+Live At : https://ncucoin.netlify.app/
+
+To Test the Ghostnet version Create a Issue and drop your tz1... address and we will include you in the Beta.
 
 
 NCUCoin : KT1AefyQpVfjupNFKBoKqrVHtHnCSZ7AKBtX
